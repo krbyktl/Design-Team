@@ -49,7 +49,7 @@ ten_minloss <- mean((1.3-SieveData$`B10`)/1.3)
 fifteen_minloss <- mean((1.3-SieveData$`B15`)/1.3)
 se <- 100*c(sd((1.3-SieveData$`B5`)/1.3)/(3^(1/2)), sd((1.3-SieveData$`B10`)/1.3)/(3^(1/2)), sd((1.3-SieveData$`B15`)/1.3)/(3^(1/2)))
 df_loss <- data.frame(times_lost = c(5,10,15),
-                 percentage_lost = 100*c(five_min,ten_min,fifteen_min))
+                 percentage_lost = 100*c(five_minloss,ten_minloss,fifteen_minloss))
 
 plt <- ggplot(data=df_loss, aes(x=times_lost, y=percentage_lost)) +
   geom_errorbar(aes(ymin=percentage_lost-0.5, ymax=percentage_lost+se), width=1,
